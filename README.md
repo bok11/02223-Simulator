@@ -4,7 +4,10 @@ The simulation example is created from this tutorial:
 https://code.tutsplus.com/tutorials/beginning-test-driven-development-in-python--net-30137
 
 We will use the python package 'unittest'
+```bash
 pip install unittest (already in Anaconda)
-
+```
 For generel debug (breakpoints) the pacakge 'pdb' is used.
+```bash
 pip install pdb (already in Anaconda)
+```

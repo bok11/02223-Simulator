@@ -20,5 +20,5 @@ B: Bok
 * Create Test data: C
 * Create Test units: B
 * Create Node app: 
-* Create Energy app: 
+* Create Energy app: C
 * Create Protokol app: B

@@ -22,3 +22,6 @@ class testGenerateTest(unittest.TestCase):
                              value_counts(normalize=True)[0],2))
         expected = distfactor
         self.assertEqual(expected, result)
+
+if __name__ == '__main__':
+    unittest.main()

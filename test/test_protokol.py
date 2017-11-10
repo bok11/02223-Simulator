@@ -44,11 +44,11 @@ class TestProtokol(unittest.TestCase):
     def test_IsOK(self):
         n_nodes =  1
         n_sensors = 4
-        result = self.prot.isokay(n_nodes,n_sensors)
+        result = self.prot.checkOK(n_nodes,n_sensors)
         expected = True
         self.assertEqual(expected, result)
         
-    def test_IsOK(self):
+    def test_IsNotOK(self):
         n_nodes =  100
         n_sensors = 1
         result = self.prot.checkOK(n_nodes,n_sensors)

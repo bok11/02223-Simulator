@@ -57,12 +57,11 @@ class Protokol(object):
         
         ToffAir = self.ToffAir(n_nodes,n_sensors)
         
+        # checks if the time off is in range of the EU directive
         if (ToffAir > 120):
-            print('if')
             return False
         
         else:
-            print('else')
             return True
         
         

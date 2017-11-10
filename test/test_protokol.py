@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 
+# målet er at undersøge at tiden der mellem hver sending , er under 120 sekunder
+
 import unittest
 from app.protokol import Protokol
 

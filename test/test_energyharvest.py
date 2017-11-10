@@ -4,3 +4,9 @@ import unittest
 from app.energyharvest import EnergyHarvest 
 
 class testEnergyHarvest(unittest.TestCase):
+    
+        def setUp(self):
+            self. = Calculator()
+            
+            
+   

@@ -17,9 +17,9 @@ class testGenerateTest(unittest.TestCase):
     
     def test_generator_distribution(self):
         distfactor = 0.5
-        n_rows = 10000
-        result = round(float(self.generate.generateTest(distfactor,n_rows).
-                             value_counts(normalize=True)[0],2))
+        n_rows = 100000
+        result = round(float(self.generate.generateTest(distfactor, n_rows).
+                             value_counts(normalize=True)[0]),2)
         expected = distfactor
         self.assertEqual(expected, result)
 

@@ -28,6 +28,9 @@ class Node(object):
         E = kWh * 1000 * 3.6 / (3600 * 24)
 
         return E # per second
+    
+    def discharge(self, amount):
+        self.energy_left -= amount
 
     def step(self, sensor_values, month):
         '''Does a single time step'''
@@ -43,12 +46,28 @@ class Node(object):
         
         # Energy check
         if self.energy_left < 0:
-            print("No energy left!")
+            # print("No energy left!")
             self.alive = False
         
         #print("Charge: {}\tLoss: {}\tRemaining: {}".format(charge, used, self.energy_left))
         
         return charge, used, self.energy_left
+    
+    def sensors_read(self):
+        '''
+        Reads from sensors. 
+        Can randomly generate data
+        Can read from dataframe/file
+        '''
+        state = 'random'
+        
+        if (state == 'random'):
+            p_one = 0.5
+            p_zero = 1.0 - p_one
+        
+            return np.random.choice([0, 1], size=self.n_sensors, replace=True, p=[p_zero, p_one])
+        elif (state == 'dataframe'):
+            pass
 """    
         
     def calculate_power_sensors(self, sensor_values):

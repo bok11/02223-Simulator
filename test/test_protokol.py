@@ -10,18 +10,52 @@ class TestProtokol(unittest.TestCase):
     def setUp(self):
         self.prot = Protokol()
     
-    def test_calculator_add_method_returns_correct_result(self):
-        result = self.calc.add(2,2)
-        self.assertEqual(4, result)
+    def test_bits_1node4sensors(self):
+        n_nodes =  1
+        n_sensors = 4
+        result = self.prot.calcBits(n_nodes,n_sensors)
+        expected = 56
+        self.assertEqual(expected, result)
         
-    def test_calculator_returns_error_message_if_both_args_not_numbers(self):
-        self.assertRaises(ValueError, self.calc.add, 'two', 'three')
- 
-    def test_calculator_returns_error_message_if_x_arg_not_number(self):
-        self.assertRaises(ValueError, self.calc.add, 'two', 3)
- 
-    def test_calculator_returns_error_message_if_y_arg_not_number(self):
-        self.assertRaises(ValueError, self.calc.add, 2, 'three')
+        
+    def test_bits_3node4sensors(self):
+        n_nodes =  3
+        n_sensors = 4
+        result = self.prot.calcBits(n_nodes,n_sensors)
+        expected = 80
+        self.assertEqual(expected, result)
+        
+
+    def test_bits_12node1sensors(self):
+        n_nodes =  12
+        n_sensors = 1
+        result = self.prot.calcBits(n_nodes,n_sensors)
+        expected = 152
+        self.assertEqual(expected, result)
+        
+    def test_ToffAir(self):
+        n_nodes =  1
+        n_sensors = 4
+        result = self.prot.ToffAir(n_nodes,n_sensors)
+        expected = 42.2
+        self.assertEqual(expected, result)
+    
+    
+    def test_IsOK(self):
+        n_nodes =  1
+        n_sensors = 4
+        result = self.prot.checkOK(n_nodes,n_sensors)
+        expected = True
+        self.assertEqual(expected, result)
+        
+    def test_IsNotOK(self):
+        n_nodes =  100
+        n_sensors = 1
+        result = self.prot.checkOK(n_nodes,n_sensors)
+        expected = False
+        self.assertEqual(expected, result)
+    
+        
         
 if __name__ == '__main__':
     unittest.main()

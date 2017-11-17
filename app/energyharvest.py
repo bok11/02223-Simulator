@@ -16,8 +16,24 @@ class EnergyHarvest(object):
 
         return E # per second
                 
-#%%
-#panel = EnergyHarvest()
+#%% Calculation for month energy production
+import pandas as pd
 
-#for _ in range(12):
-#    print("Daily energi in KJ: {0:2f}".format(panel.charge(, 0.2, _)*60*60*24))
+days_in_month = np.array([31,28,31,30,31,30,31,31,30,31,30,31])
+daily_solar_radiation = np.array([0.4,1.04,2.32,3.9,5.05,6.07,5.31,4.48,2.88,1.48,0.63,0.35])
+monthly_radiation = np.multiply(days_in_month, daily_solar_radiation)
+
+PR = 0.75 # performance ratio, coefficient for losses
+panel_size = 0.25
+efficiency = 0.2
+
+monthly_energy = []
+for value in monthly_radiation:
+    kWh = panel_size * efficiency * value * PR
+    E = kWh * 1000 * 3.6 # / (3600 * 24)
+    monthly_energy.append(E)
+    print(E)
+
+#data['graph'] pd.DataFrame(monthly_energy)
+
+

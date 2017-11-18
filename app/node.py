@@ -16,6 +16,7 @@ class Node(object):
     panel_efficiency = 0.2 # 20 % effeciency
     panel_size = 0.2 # in m^2
     
+    
     def __init__(self, n_sensors, handicap):
         self.n_sensors = n_sensors
         battery_size = 2500         # in mAha

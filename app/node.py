@@ -42,15 +42,19 @@ class Node(object):
         #used += self.calculate_power_sensors(sensor_values)
         #used += self.calculate_power_send_data()
         charge = 0
-        charge += self.charge(month=month)
+        charge += self.charge(month=month) * 60 
 
         self.energy_left -= used
         self.energy_left += charge
 
         # Energy check
-        if self.energy_left < 0:
+        if self.energy_left <= 0:
             # print("No energy left!")
             self.alive = False
+            self.energy_left = 0
+        elif self.energy_left > 100:
+            self.alive = True
+            
 
         #print("Charge: {}\tLoss: {}\tRemaining: {}".format(charge, used, self.energy_left))
 
